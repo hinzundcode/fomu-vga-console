@@ -1,5 +1,7 @@
 # fomu vga console
 
+![demo](https://raw.githubusercontent.com/hinzundcode/fomu-vga-console/master/demo.jpg)
+
 ## pinout
 
 * user_1 to R/G/B (VGA pins 1, 2 and 3)
