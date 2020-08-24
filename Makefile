@@ -1,5 +1,3 @@
-REQUIRED_TIMING_MHZ = 25.125
-
 # Simple Fomu Makefile
 # --------------------
 # This Makefile shows the steps to generate a DFU loadable image onto
@@ -56,7 +54,6 @@ vga_console.asc: vga_console.json
 		--pre-pack timings.py \
 		--json vga_console.json \
 		--asc vga_console.asc
-	set -o pipefail; icetime $(ICETIMEFLAGS) -c $(REQUIRED_TIMING_MHZ) -t vga_console.asc | tee vga_console.timing.txt
 
 # Use icepack to convert the FPGA configuration into a "bitstream" loadable onto the FPGA.
 # This is called the bitstream generation step.
@@ -80,6 +77,5 @@ clean:
 	-rm -f vga_console.asc 	# FPGA configuration
 	-rm -f vga_console.bit 	# FPGA bitstream
 	-rm -f vga_console.dfu 	# DFU image loadable onto the Fomu
-	-rm -f vga_console.timing.txt
 
 .PHONY: clean
