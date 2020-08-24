@@ -1,0 +1,6 @@
+*.bdf
+*.asc
+*.bit
+*.dfu
+*.timing.txt
+vga_console.json
