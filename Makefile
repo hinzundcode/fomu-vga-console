@@ -53,6 +53,7 @@ vga_console.json: vga_console.v hvsync_generator.v buffer.v font.v
 vga_console.asc: vga_console.json
 	nextpnr-ice40 \
 		$(PNRFLAGS) \
+		--pre-pack timings.py \
 		--json vga_console.json \
 		--asc vga_console.asc
 	set -o pipefail; icetime $(ICETIMEFLAGS) -c $(REQUIRED_TIMING_MHZ) -t vga_console.asc | tee vga_console.timing.txt
