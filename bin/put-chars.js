@@ -1,8 +1,8 @@
 "use strict";
 const { execSync } = require("child_process");
 
-const CSR_VGA_FB = 0x60003800;
-const CSR_VGA_FB_PAGE = 0x60003004;
+const CSR_VGA_FB = 0x00003800;
+const CSR_VGA_FB_PAGE = 0x00003004;
 const FRAMEBUFFER_WIDTH = 80;
 const FRAMEBUFFER_HEIGHT = 30;
 
