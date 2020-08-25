@@ -14,7 +14,7 @@
 ```
 $ python vga.py --board pvt
 $ dfu-util -D build/gateware/fomu_pvt.dfu
-$ node put-chars.js Hello from fomu
+$ node bin/put-chars.js Hello from fomu
 ```
 
 ## font
