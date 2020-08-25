@@ -29,11 +29,11 @@ def print_string(client, x, y, string):
 			
 			x += 1
 		
-		if x >= FRAMEBUFFER_WIDTH - 1:
+		if x >= FRAMEBUFFER_WIDTH:
 			y += 1
 			x = 0
 		
-		if y >= FRAMEBUFFER_HEIGHT - 1:
+		if y >= FRAMEBUFFER_HEIGHT:
 			y = 0
 	
 	return (x, y)
