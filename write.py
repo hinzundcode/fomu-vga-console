@@ -7,6 +7,7 @@ import lxbuildenv
 from litex.tools.remote.comm_usb import CommUSB
 from math import floor
 import argparse
+import sys
 
 CSR_VGA_FB = 0x00003800
 CSR_VGA_FB_PAGE = 0x00003004
@@ -14,16 +15,28 @@ FRAMEBUFFER_WIDTH = 80
 FRAMEBUFFER_HEIGHT = 30
 
 def print_string(client, x, y, string):
-	address = y * FRAMEBUFFER_WIDTH + x
-	
 	for char in string:
-		page = floor(address / 512)
-		offset = address % 512
+		if char == "\n":
+			y += 1
+			x = 0
+		else:
+			address = y * FRAMEBUFFER_WIDTH + x
+			page = floor(address / 512)
+			offset = address % 512
+			
+			client.write(CSR_VGA_FB_PAGE, page)
+			client.write(CSR_VGA_FB + offset*4, ord(char))
+			
+			x += 1
 		
-		client.write(CSR_VGA_FB_PAGE, page)
-		client.write(CSR_VGA_FB + offset*4, ord(char))
+		if x >= FRAMEBUFFER_WIDTH - 1:
+			y += 1
+			x = 0
 		
-		address += 1
+		if y >= FRAMEBUFFER_HEIGHT - 1:
+			y = 0
+	
+	return (x, y)
 
 def fill(client, char):
 	print_string(client, 0, 0, char * (FRAMEBUFFER_WIDTH * FRAMEBUFFER_HEIGHT))
@@ -44,9 +57,14 @@ def main():
 	
 	if args.clear:
 		clear(client)
-	else:
+	elif args.string:
 		string = " ".join(args.string)
 		print_string(client, args.x, args.y, string)
+	else:
+		x = args.x
+		y = args.y
+		for line in sys.stdin:
+			x, y = print_string(client, x, y, line)
 	
 	client.close()
 
