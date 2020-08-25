@@ -19,7 +19,8 @@ DEFAULT_DEPS = {
     'litex_boards': 'https://github.com/litex-hub/litex-boards.git',
     'litescope':    'https://github.com/enjoy-digital/litescope.git',
     'pyserial':     'https://github.com/pyserial/pyserial.git',
-    'valentyusb':     'https://github.com/im-tomu/valentyusb.git',
+    'valentyusb':   'https://github.com/im-tomu/valentyusb.git',
+    'usb':          'https://github.com/pyusb/pyusb.git',
 }
 
 OPTIONAL_DEPS = {
@@ -29,7 +30,6 @@ OPTIONAL_DEPS = {
     'litesdcard':   'https://github.com/enjoy-digital/litesdcard.git',
     'liteiclink':   'https://github.com/enjoy-digital/liteiclink.git',
     'litevideo':    'https://github.com/enjoy-digital/litevideo.git',
-    'usb':          'https://github.com/pyusb/pyusb.git',
 }
 
 # Obtain the path to this script, plus a trailing separator.  This will

@@ -19,3 +19,6 @@
 [submodule "deps/valentyusb"]
 	path = deps/valentyusb
 	url = https://github.com/im-tomu/valentyusb.git
+[submodule "deps/usb"]
+	path = deps/usb
+	url = https://github.com/pyusb/pyusb.git
