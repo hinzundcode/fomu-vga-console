@@ -1,5 +1,5 @@
-*.bdf
-*.asc
-*.bit
-*.dfu
-vga_console.json
+*.pyc
+build/
+test/
+__pycache__/
+u_vga16.bdf
